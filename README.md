@@ -1,8 +1,8 @@
-https://img.shields.io/badge/Docker-up-green
-https://img.shields.io/badge/Mongo-up-green
-https://img.shields.io/badge/Cassandra-up-green
-https://img.shields.io/badge/GoogleCloudPlatform-up-green
-https://img.shields.io/badge/Python-up-green
+[![Docker badge]https://img.shields.io/badge/Docker-up-green
+[![Mongo badge]https://img.shields.io/badge/Mongo-up-green
+[![Cassandra badge]https://img.shields.io/badge/Cassandra-up-green
+[![GCP badge]https://img.shields.io/badge/GoogleCloudPlatform-up-green
+[![Python badge]https://img.shields.io/badge/Python-up-green
 
 ## Docker-Mongo-Cassandra
 
