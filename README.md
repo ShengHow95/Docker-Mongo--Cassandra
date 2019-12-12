@@ -4,7 +4,7 @@
 ![GCP badge](https://img.shields.io/badge/GoogleCloudPlatform-up-green)
 ![Python badge](https://img.shields.io/badge/Python-up-green)
 
-## Docker-Mongo-Cassandra
+# Docker-Mongo-Cassandra
 
 Contributed by:
 1. Kong Sheng How
@@ -26,13 +26,14 @@ Base Image: [mongo](https://hub.docker.com/_/mongo)
 Image with Crimes Dataset: [jeffhow/cassandra](https://hub.docker.com/r/jeffhow/cassandra)  
 Base Image: [cassandra](https://hub.docker.com/_/cassandra)  
 
-### Project Overview
+## Project Overview
 1. Build Docker Image with Dataset
 2. Setup and deploy MongoDB and Cassandra using Docker container in Google Cloud Platform
 3. Connect to Docker Container Using Python
 
-#### Build Docker Image with Dataset (Optional)
+### Build Docker Image with Dataset (Optional)
 1. Create a path with `dataset` and `Dockerfile` with content:  
+
 **MongoDB**
 ```
 # Use mongo Image as base image
@@ -41,7 +42,6 @@ From mongo
 # Copy Dataset from Local Folder to Container
 COPY <source path>.csv <container path>.csv
 ```
-
 **Cassandra**
 ```
 # Use cassandra Image as base image
@@ -50,12 +50,11 @@ FROM cassandra
 # Copy Dataset from Local Folder to Container
 COPY <source path>.csv <container path>.csv
 ```
-
 2. Build the docker image. `docker build -t <username>\<image name>`
 3. Login to your Docker Account. `docker login` (If you have already logged in, skip this step)
 4. Push image to Docker Hub. `docker push <username>\<image name>`
 
-#### Setup and deploy MongoDB and Cassandra using Docker container in Google Cloud Platform
+### Setup and deploy MongoDB and Cassandra using Docker container in Google Cloud Platform
 **MongoDB**
 1. Create a *Container OS* VM instance in Google Cloud Platform (GCP). (Make sure to turn on IP Forwarding in network settings)
 2. Run the following commands in *VM Shell* to setup Mongo Server in GCP and import dataset into Mongo Server
@@ -114,12 +113,11 @@ CREATE TABLE IF NOT EXISTS crimestable (Id int PRIMARY KEY, Arrest boolean, Beat
 COPY crimestable (Id, Arrest, Beat, Block, CaseNumber, CommunityArea, Date, Description, District, Domestic, FBICode, IUCR, Latitude, Location, LocationDescription, Longitude, PrimaryType, UpdatedOn, Ward, XCoordinate, YCoordinate, Year) FROM '/crimes.csv' WITH DELIMITER=',' AND HEADER=TRUE AND DATETIMEFORMAT='%m/%d/%Y %H:%M:%S %p';
 ```
 
-#### Connect to Docker Container Using Python
+### Connect to Docker Container Using Python
 1. Make sure to install the following python drivers:  
 
 **Mongo**
 ```pip install pymongo```
-
 **Cassandra**
 ```pip install cassandra-driver```
 
